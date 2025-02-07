@@ -1,0 +1,28 @@
+@startuml
+set namespaceSeparator none
+
+interface fr.ensim.dp.cache.ICache {
+  long size();
+  boolean add(String key, byte[] buf);
+  byte[] retreive(String key);
+  void clear();
+}
+Class fr.ensim.dp.cache.MemoryCache
+note left of fr.ensim.dp.cache.MemoryCache
+Un cache mémoire
+pour toutes les cartes
+de l'application
+end note
+
+Class fr.ensim.dp.cache.DiskCache
+note right of fr.ensim.dp.cache.DiskCache
+Un cache disque par type
+de carte (mapnik, OSm France, Open TopoMap).
+Les cartes sont stockées dans un répertoire
+par type de carte.
+end note
+
+fr.ensim.dp.cache.ICache <|-- fr.ensim.dp.cache.MemoryCache
+fr.ensim.dp.cache.ICache <|-- fr.ensim.dp.cache.DiskCache
+
+@enduml

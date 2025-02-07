@@ -1,0 +1,15 @@
+@startuml
+
+[*] --> Stop
+
+Stop -> Play
+Play --> Stop
+Play --> Pause
+Pause --> Play
+Play --> Forward
+Play --> Backward
+Backward --> Forward
+Forward --> Backward
+Backward --> Stop
+Forward --> Stop
+@enduml

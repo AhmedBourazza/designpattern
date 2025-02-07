@@ -1,0 +1,44 @@
+@startuml
+set namespaceSeparator none
+
+interface fr.ensim.dp.cache.filter.IFilterCache {
+  byte[] doAdd(String key, byte[] buf);
+  byte[] doRetreive(String key, byte[] buf);
+  public IFilterCache setNext(IFilterCache next);
+}
+Class fr.ensim.dp.cache.filter.CountFilterCache
+note bottom of fr.ensim.dp.cache.filter.CountFilterCache
+Compte le nombre de
+mise en cache (doAdd)
+et le nombre de récupération
+du cache (doRetreive)
+end note
+
+Class fr.ensim.dp.cache.filter.EncryptFilterCache
+note bottom of fr.ensim.dp.cache.filter.EncryptFilterCache
+Chiffre la carte à mettre
+en cache (doAdd)
+Déchiffre la carte
+à restituer (doRetreive)
+end note
+
+Class fr.ensim.dp.cache.filter.LogFilterCache
+note bottom of fr.ensim.dp.cache.filter.LogFilterCache
+Trace la mise en cache
+en Log4J2 (doAdd)
+Trace la restitution d'une carte
+en Log4J2  (doRetreive)
+end note
+
+Class fr.ensim.dp.cache.filter.CompressFilterCache
+note bottom of fr.ensim.dp.cache.filter.CompressFilterCache
+Compresse le carte (doAdd)
+Décompresse la carte  (doRetreive)
+end note
+
+fr.ensim.dp.cache.filter.IFilterCache <|-- fr.ensim.dp.cache.filter.CountFilterCache
+fr.ensim.dp.cache.filter.IFilterCache <|-- fr.ensim.dp.cache.filter.LogFilterCache
+fr.ensim.dp.cache.filter.IFilterCache <|-- fr.ensim.dp.cache.filter.EncryptFilterCache
+fr.ensim.dp.cache.filter.IFilterCache <|-- fr.ensim.dp.cache.filter.CompressFilterCache
+
+@enduml
