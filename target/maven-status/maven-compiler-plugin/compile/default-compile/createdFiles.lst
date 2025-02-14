@@ -1,2 +1,4 @@
-fr\ensim\dp\cache\filter\IFilterCache.class
 fr\ensim\dp\cache\ICache.class
+fr\ensim\dp\cache\filter\IFilterCache.class
+fr\ensim\dp\cache\DiskCache.class
+fr\ensim\dp\cache\MemoryCache.class

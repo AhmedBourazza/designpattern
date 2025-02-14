@@ -1,2 +1,4 @@
 H:\Home\Bureau\DesignPattern\tp1v3-dp-squelette-maven\tp1v3-dp-squelette-maven\src\main\java\fr\ensim\dp\cache\filter\IFilterCache.java
+H:\Home\Bureau\DesignPattern\tp1v3-dp-squelette-maven\tp1v3-dp-squelette-maven\src\main\java\fr\ensim\dp\cache\MemoryCache.java
+H:\Home\Bureau\DesignPattern\tp1v3-dp-squelette-maven\tp1v3-dp-squelette-maven\src\main\java\fr\ensim\dp\cache\DiskCache.java
 H:\Home\Bureau\DesignPattern\tp1v3-dp-squelette-maven\tp1v3-dp-squelette-maven\src\main\java\fr\ensim\dp\cache\ICache.java
