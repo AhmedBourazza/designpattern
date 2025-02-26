@@ -16,7 +16,6 @@ class MemoryCacheTest {
     @Test
     void size() {
         assertEquals(0, MemoryCache.getInstance().size());
-
     }
     @Test
     void add() {

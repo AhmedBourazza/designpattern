@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class DiskCache implements ICache {
     private File cacheDir;
-    private static HashMap<String, DiskCache> instances;
+    private static HashMap<String, DiskCache> mapCache = new HashMap<>();
 
     private DiskCache(String mapName) {
         cacheDir = new File(mapName);
@@ -35,6 +35,7 @@ public class DiskCache implements ICache {
             File cacheFile = new File(cacheDir, key);
             FileOutputStream fos = new FileOutputStream(cacheFile);
             fos.write(buf);
+            System.out.println("Adding " + key + " to " + cacheFile);
             fos.close();
             return true;
         } catch (IOException e) {
@@ -47,7 +48,7 @@ public class DiskCache implements ICache {
     public byte[] retreive(String key) {
         if (key != null) {
             File cacheFile = new File(cacheDir, key);
-            if (cacheFile.exists()) {
+
                 try (FileInputStream fis = new FileInputStream(cacheFile)) {
                     byte[] buf = new byte[(int) cacheFile.length()];
                     fis.read(buf);
@@ -55,7 +56,7 @@ public class DiskCache implements ICache {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
+
         }
         return null;
     }
@@ -71,11 +72,9 @@ public class DiskCache implements ICache {
     public void setFilterCache(IFilterCache filter) {
     }
 
-    public static DiskCache getInstance(String mapName) {
-        if (instances == null) {
-            instances = new HashMap<>();
-
-        }
-        return instances.get(mapName);
+    public static  DiskCache getInstance(String mapName) {
+        mapCache.putIfAbsent(mapName, new DiskCache(mapName));
+        return mapCache.get(mapName);
     }
+
 }

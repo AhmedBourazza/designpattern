@@ -1,0 +1,5 @@
+# Created at 2025-02-26T15:20:01.440
+Boot Manifest-JAR contains absolute paths in classpath 'H:\Home\Bureau\DesignPattern\tp1v3-dp-squelette-maven\tp1v3-dp-squelette-maven\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
